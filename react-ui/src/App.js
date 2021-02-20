@@ -18,19 +18,12 @@ class App extends Component {
     };
   }
 
-  getResumeData(){
-    // $.ajax({
-    //   url:'/resumeData.json',
-    //   dataType:'json',
-    //   cache: false,
-    //   success: function(data){
-    //     this.setState({resumeData: data});
-    //   }.bind(this),
-    //   error: function(xhr, status, err){
-    //     console.log(err);
-    //     alert(err);
-    //   }
-    // });
+  async getResumeData(){
+
+      const rawResponse = await fetch('/resumeData.json');
+      const resumeData = await rawResponse.json()
+      this.setState({resumeData});
+
   }
 
   componentDidMount(){
